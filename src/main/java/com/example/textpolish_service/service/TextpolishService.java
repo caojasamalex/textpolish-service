@@ -19,9 +19,6 @@ public class TextpolishService {
     @Autowired
     private SimilarityCalculator similarityCalculator;
 
-    @Autowired
-    private TagRemover tagRemover;
-
     public PolishResponse processRequest(PolishRequest request) {
         if (!proofreadingService.getSupportedLanguages().contains(request.getLanguage())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unsupported language");

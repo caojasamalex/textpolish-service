@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TagRemover {
 
-    public static String removeTags(String text){
+    public String removeTags(String text){
         return text.replaceAll("<[^>]+?>", "");
     }
 }

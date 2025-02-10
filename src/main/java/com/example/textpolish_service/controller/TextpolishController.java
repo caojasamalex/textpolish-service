@@ -17,9 +17,12 @@ public class TextpolishController {
     @Autowired
     private TextpolishService textpolishService;
 
+    @Autowired
+    private TagRemover tagRemover;
+
     @PostMapping
     public ResponseEntity<?> polishText(@RequestBody @Valid PolishRequest request) {
-        request.setContent(TagRemover.removeTags(request.getContent()));
+        request.setContent(tagRemover.removeTags(request.getContent()));
 
         if(countWords(request.getContent()) == 0){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Content is required");

@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: "textpolish-service"
+
+  cache:
+    type: simple
+
+  quartz:
+    job-store-type: memory
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: TextPolishScheduler
+          jobStore:
+            class: org.quartz.simpl.RAMJobStore
+          threadPool:
+            threadCount: 3
